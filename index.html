@@ -2,149 +2,131 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projektanfrage</title>
+  <title>DGS – Projektanfrage (Wizard)</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Calendly embed script -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-
-    <div class="hero-card">
-      <div class="hero-pill">DIGITAL GROWTH STUDIO <span class="emoji" aria-hidden="true">✨</span></div>
-      <h1 class="hero-title">Bereit für messbares Wachstum?</h1>
-      <p class="hero-sub">Wenn wir gut zusammenpassen, bringen wir deine Marke schnell und nachhaltig voran.</p>
-      <span class="hero-rocket" aria-hidden="true">🚀</span>
+  <section class="dgs-quiz" id="dgs-wizard" aria-label="Kurze Projektanfrage">
+    <div class="dgs-quiz__top">
+      <button class="dgs-quiz__back" type="button" aria-label="Zurück">Zurück</button>
+      <div class="dgs-quiz__progress" aria-hidden="true">
+        <div class="dgs-quiz__progress-bar" style="--p:0%"></div>
+      </div>
+      <div class="dgs-quiz__stepcount" aria-live="polite" aria-atomic="true">Schritt 1/6</div>
     </div>
-  </section>
 
-  <main class="wrap">
-    <header class="head sr-only">
-      <h1>Kurze Projektanfrage</h1>
-      <p>60 Sekunden. Dann kannst du direkt einen Termin buchen.</p>
-    </header>
+    <form id="leadForm" class="dgs-quiz__card" method="post" novalidate>
+      <!-- STEP 1 – Themen (Mehrfachauswahl) -->
+      <section class="dgs-step is-active" data-step="1" data-mode="multi" role="group" aria-labelledby="t1">
+        <h2 class="dgs-step__title" id="t1">Wobei brauchst du Hilfe?</h2>
+        <p class="dgs-step__sub">Mehrfachauswahl möglich.</p>
 
-    <form id="leadForm" novalidate>
-      <div class="grid">
-        <div class="field">
-          <label for="name">Name *</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
+        <div class="dgs-choices dgs-choices--grid2">
+          <label class="dgs-chip"><input type="checkbox" name="topics" value="Google/YouTube Ads" /><span>Google / YouTube Ads</span></label>
+          <label class="dgs-chip"><input type="checkbox" name="topics" value="Meta/TikTok Ads" /><span>Meta / TikTok Ads</span></label>
+          <label class="dgs-chip"><input type="checkbox" name="topics" value="Creative/UGC" /><span>Creative / UGC</span></label>
+          <label class="dgs-chip"><input type="checkbox" name="topics" value="Audit/Workshop" /><span>Audit / Workshop</span></label>
+          <label class="dgs-chip"><input type="checkbox" name="topics" value="Retainer" /><span>Laufende Betreuung</span></label>
         </div>
 
-        <div class="field">
-          <label for="email">Business-E-Mail *</label>
-          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+        <div class="dgs-actions dgs-actions--inline">
+          <button class="dgs-btn dgs-next" type="button" disabled>Weiter</button>
         </div>
+      </section>
 
-        <div class="field full">
-          <label for="url">Shop-/Website-URL *</label>
-          <input id="url" name="url" type="url" placeholder="https://…" required />
-        </div>
-
-        <fieldset class="field full">
-          <legend>Wobei brauchst du Hilfe? *</legend>
-
-          <!-- Soft chips with purple checkmark -->
-          <div class="chips">
-            <label class="chip">
-              <input type="checkbox" name="topics" value="Google/YouTube Ads" />
-              <span>Google/YouTube Ads</span>
-            </label>
-            <label class="chip">
-              <input type="checkbox" name="topics" value="Meta/TikTok Ads" />
-              <span>Meta/TikTok Ads</span>
-            </label>
-            <label class="chip">
-              <input type="checkbox" name="topics" value="Creative/UGC" />
-              <span>Creative / UGC</span>
-            </label>
-            <label class="chip">
-              <input type="checkbox" name="topics" value="Audit/Workshop" />
-              <!-- geschützte Leerzeichen, damit NICHT umgebrochen wird -->
-              <span>Audit&nbsp;/&nbsp;Workshop</span>
-            </label>
-            <label class="chip">
-              <input type="checkbox" name="topics" value="Retainer" />
-              <span>Laufende Betreuung</span>
-            </label>
-          </div>
-          <p class="hint">Mehrfachauswahl möglich.</p>
-        </fieldset>
-
-        <div class="field full">
-          <label for="goal">Kurz dein Ziel / Herausforderung *</label>
-          <textarea id="goal" name="goal" rows="3" placeholder="z. B. ROAS stagniert, EU-Expansion, Creative-Uplift …" required></textarea>
-          <p class="hint">1–3 Sätze genügen.</p>
-        </div>
-
-        <div class="field">
-          <label for="adspend">Monatlicher Adspend (optional)</label>
-          <select id="adspend" name="adspend">
-            <option value="">Noch unklar</option>
-            <option>&lt; 5.000 €</option>
-            <option>5.000–20.000 €</option>
-            <option>20.000–50.000 €</option>
-            <option>&gt; 50.000 €</option>
-          </select>
-          <p class="hint">Schätzung reicht – hilft bei der Vorbereitung.</p>
-        </div>
-
-        <div class="field">
-          <label for="phone">Telefon (optional)</label>
-          <input id="phone" name="phone" type="tel" placeholder="+49 160 1234567" inputmode="tel" />
-          <p class="hint">Nur für schnelle Rückfragen.</p>
-        </div>
-
-        <!-- Optional (nur Rolle) -->
-        <div class="full optional-block">
-          <p class="opt-title">Weitere Angaben (optional)</p>
-          <div class="field">
-            <label for="role">Rolle (optional)</label>
-            <select id="role" name="role">
-              <option value="">Auswählen …</option>
-              <option>Founder / CEO</option>
-              <option>Marketing Lead</option>
-              <option>Performance Manager</option>
-              <option>Creator</option>
-              <option>Sonstiges</option>
-            </select>
+      <!-- STEP 2 – URL -->
+      <section class="dgs-step" data-step="2" role="group" aria-labelledby="t2">
+        <h2 class="dgs-step__title" id="t2">Shop-/Website-URL</h2>
+        <div class="dgs-grid">
+          <div class="dgs-field dgs-field--full">
+            <label for="url">URL *</label>
+            <input id="url" name="url" type="url" placeholder="https://…" required />
+            <p class="dgs-hint">Gern die wichtigste Landingpage.</p>
           </div>
         </div>
+        <div class="dgs-actions dgs-actions--inline">
+          <button class="dgs-btn dgs-next" type="button" disabled>Weiter</button>
+        </div>
+      </section>
 
-        <div class="field full consent">
-          <label>
+      <!-- STEP 3 – Ziel -->
+      <section class="dgs-step" data-step="3" role="group" aria-labelledby="t3">
+        <h2 class="dgs-step__title" id="t3">Kurz dein Ziel / Herausforderung</h2>
+        <div class="dgs-grid">
+          <div class="dgs-field dgs-field--full">
+            <label for="goal">Beschreibung *</label>
+            <textarea id="goal" name="goal" rows="3" placeholder="z. B. ROAS stagniert, EU-Expansion, Creative-Uplift …" required></textarea>
+            <p class="dgs-hint">1–3 Sätze genügen.</p>
+          </div>
+        </div>
+        <div class="dgs-actions dgs-actions--inline">
+          <button class="dgs-btn dgs-next" type="button" disabled>Weiter</button>
+        </div>
+      </section>
+
+      <!-- STEP 4 – Adspend (auto-next) -->
+      <section class="dgs-step" data-step="4" data-autonext="true" role="group" aria-labelledby="t4">
+        <h2 class="dgs-step__title" id="t4">Monatlicher Adspend</h2>
+        <div class="dgs-choices dgs-choices--grid2">
+          <label class="dgs-choice"><input type="radio" name="adspend" value="< 5.000 €"><span>&lt; 5.000&nbsp;€</span></label>
+          <label class="dgs-choice"><input type="radio" name="adspend" value="5.000–20.000 €"><span>5.000 – 20.000&nbsp;€</span></label>
+          <label class="dgs-choice"><input type="radio" name="adspend" value="20.000–50.000 €"><span>20.000 – 50.000&nbsp;€</span></label>
+          <label class="dgs-choice"><input type="radio" name="adspend" value="> 50.000 €"><span>&gt; 50.000&nbsp;€</span></label>
+        </div>
+      </section>
+
+      <!-- STEP 5 – Rolle (required, auto-next) -->
+      <section class="dgs-step" data-step="5" data-autonext="true" role="group" aria-labelledby="t5-role">
+        <h2 class="dgs-step__title" id="t5-role">Rolle</h2>
+        <div class="dgs-choices dgs-choices--grid2">
+          <label class="dgs-choice"><input type="radio" name="role" value="Founder / CEO" required><span>Founder / CEO</span></label>
+          <label class="dgs-choice"><input type="radio" name="role" value="Marketing Lead" required><span>Marketing Lead</span></label>
+          <label class="dgs-choice"><input type="radio" name="role" value="Performance Manager" required><span>Performance Manager</span></label>
+          <label class="dgs-choice"><input type="radio" name="role" value="Creator" required><span>Creator</span></label>
+          <label class="dgs-choice"><input type="radio" name="role" value="Sonstiges" required><span>Sonstiges</span></label>
+        </div>
+      </section>
+
+      <!-- STEP 6 – Kontakt & Submit -->
+      <section class="dgs-step" data-step="6" role="group" aria-labelledby="t6">
+        <h2 class="dgs-step__title" id="t6">Kontakt</h2>
+        <div class="dgs-grid">
+          <div class="dgs-field">
+            <label for="name">Name *</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="dgs-field">
+            <label for="email">Business-E-Mail *</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="dgs-field dgs-field--full">
+            <label for="phone">Telefon (optional)</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+49 …" />
+          </div>
+          <label class="dgs-consent dgs-field--full">
             <input id="consent" type="checkbox" required />
-            Ich erlaube die Kontaktaufnahme per E-Mail/Telefon und akzeptiere die <a href="/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+            <span>Ich erlaube die Kontaktaufnahme per E-Mail/Telefon und akzeptiere die
+              <a href="/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
           </label>
         </div>
-      </div>
 
-      <!-- hidden tracking -->
-      <input type="hidden" id="utm_source" name="utm_source">
-      <input type="hidden" id="utm_medium" name="utm_medium">
-      <input type="hidden" id="utm_campaign" name="utm_campaign">
-      <input type="hidden" id="utm_content" name="utm_content">
-      <input type="hidden" id="referrer" name="referrer">
-      <input type="hidden" id="lead_score" name="lead_score">
+        <!-- Hidden / Tracking -->
+        <input type="hidden" id="utm_source" name="utm_source">
+        <input type="hidden" id="utm_medium" name="utm_medium">
+        <input type="hidden" id="utm_campaign" name="utm_campaign">
+        <input type="hidden" id="utm_content" name="utm_content">
+        <input type="hidden" id="referrer" name="referrer">
+        <input type="hidden" id="lead_score" name="lead_score">
+        <input type="hidden" id="summary" name="summary">
 
-      <div class="actions">
-        <button id="submitBtn" type="submit">Senden & Termin buchen</button>
-        <p id="formMsg" class="msg" role="status" aria-live="polite"></p>
-      </div>
+        <div class="dgs-actions">
+          <button class="dgs-btn" id="submitBtn" type="submit">Senden &amp; Meeting buchen</button>
+          <p id="formMsg" class="dgs-msg" role="status" aria-live="polite"></p>
+        </div>
+      </section>
     </form>
-
-    <!-- Calendly nach erfolgreichem Submit -->
-    <section id="calendlyWrap" class="calendly hidden" aria-hidden="true">
-      <h2>Buche deinen Termin</h2>
-      <div id="calendlyEmbed" class="calendly-inline-widget"
-           data-url="YOUR_CALENDLY_URL?hide_landing_page_details=1&hide_event_type_details=1"
-           style="min-width:320px;height:720px"></div>
-    </section>
-  </main>
+  </section>
 
   <script src="script.js" defer></script>
 </body>
