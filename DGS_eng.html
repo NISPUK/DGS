@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Growth Studio - Get-to-Know Call</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Spacing scale for consistent rhythm */
+    :root {
+      --gap-1: 14px;   /* short gap */
+      --gap-2: 18px;   /* paragraph gap */
+      --gap-3: 24px;   /* section gap */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff; /* no grey canvas */
+      color: #333;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: var(--gap-3) 12px; /* breathable page edges */
+    }
+
+    /* A simple, unboxed content column */
+    .wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0; /* no card padding */
+    }
+
+    /* Content rhythm */
+    .content > * + * { margin-top: var(--gap-2); }
+
+    .greeting { font-size: 16px; }
+    .main-text { font-size: 14px; color: #555; }
+
+    /* CTA */
+    .cta-wrap { text-align: center; margin-top: var(--gap-1); }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 999px; /* pill */
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* KPI list (no heading), tight, aligned bullets */
+    .kpi-list { list-style: none; padding: 0; margin: var(--gap-1) 0 0 0; }
+    .kpi-list li { font-size: 14px; color: #555; }
+    .kpi-list li + li { margin-top: 10px; }
+    .kpi-list .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #7c3aed;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .kpi-list .text { vertical-align: middle; }
+
+    .closing { font-size: 14px; color: #555; }
+
+    /* Signature & Footer */
+    .signature { margin-top: var(--gap-1); font-size: 14px; }
+    .signature-name { font-weight: 600; color: #333; margin-bottom: 6px; }
+
+    .footer {
+      text-align: center;
+      margin-top: var(--gap-3);
+      padding-top: var(--gap-2);
+      border-top: 1px solid #e5e7eb;
+    }
+    .footer-text { font-size: 12px; color: #9ca3af; }
+
+    @media (max-width: 600px) {
+      .cta-button { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="content">
+      <p class="greeting">Olá [First Name],</p>
+
+      <p class="main-text">
+        thank you so much for booking our Get-to-Know Call – we’re excited to speak with you!
+      </p>
+
+      <p class="main-text">
+        Below you will find a link to our &quot;Introducting Digital Growth Studio” Presentation. It gives you a clear overview of our approach, case studies, and how we help brands scale successfully.
+      </p>
+
+      <!-- Visible label only, placeholder stays in href -->
+      <div class="cta-wrap">
+        <a href="[Insert Pitchdeck Link]" class="cta-button">View Our Presentation</a>
+      </div>
+
+      <p class="main-text">
+        To make the call as valuable as possible and to see if we’re the right partners for each other, it would be great if you could have the following KPIs ready:
+      </p>
+
+      <ul class="kpi-list">
+        <li><span class="dot"></span><span class="text">Monthly Ad Spend</span></li>
+        <li><span class="dot"></span><span class="text">Monthly Revenue</span></li>
+        <li><span class="dot"></span><span class="text">Target MER &amp; desired CAC</span></li>
+        <li><span class="dot"></span><span class="text">AOV (Average Order Value)</span></li>
+        <li><span class="dot"></span><span class="text">Customer LTV</span></li>
+        <li><span class="dot"></span><span class="text">Current challenges</span></li>
+      </ul>
+
+      <p class="main-text">
+        This way, we can focus directly on your goals during the conversation and identify the most relevant growth levers for your brand. If you have any questions about it, just write them down and tell us in the call or, if you feel they're urgent, simply reply to this email.
+      </p>
+
+      <p class="main-text">
+        We’re looking forward to our exchange and to developing the right strategies for your brand together.
+      </p>
+
+      <p class="closing">Have a great day!</p>
+    </div>
+
+    <div class="signature">
+      <div class="signature-name">Maria</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-text">
+        Sent with <span class="heart">💜</span> from the whole <span class="company-name">Digital Growth Studio Team</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
